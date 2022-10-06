@@ -1,15 +1,13 @@
 name: "irssi"
-decription: "irssi chat program"
-version: "0.0.4"
+description: "irssi chat program"
+version: "0.0.5"
 slug: "irssi"
 init: false
 arch:
-    - aarch64
-    - amd64
-    - armhf
-    - armv7
-    - i386
+- aarch64
+- amd64
+- armhf
+- armv7
+- i386
 map:
-    - irssi
-
-
+- irssi
