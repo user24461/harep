@@ -11,4 +11,5 @@ arch:
 - i386
 map:
 - config:rw
+startup: application
 
