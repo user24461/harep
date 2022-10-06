@@ -10,5 +10,5 @@ arch:
 - armv7
 - i386
 map:
-- irssi:rw
+- config:rw
 

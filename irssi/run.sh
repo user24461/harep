@@ -1,2 +1,3 @@
-/usr/bin/irssi --config=/irssi/.irssi/config --home=/irssi/.irssi
+#!/bin/bash
+irssi --config=/config/.irssi/config --home=/config/.irssi
 
