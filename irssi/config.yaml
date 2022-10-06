@@ -1,4 +1,5 @@
 name: "irssi"
+decription: "irssi chat program"
 version: "0.0.3"
 slug: "irssi"
 init: false
