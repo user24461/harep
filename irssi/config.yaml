@@ -1,6 +1,6 @@
-name: irssi
-version: 0.0.3
-slug: irssi
+name: "irssi"
+version: "0.0.3"
+slug: "irssi"
 init: false
 arch:
     - aarch64
