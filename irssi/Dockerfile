@@ -1,8 +1,6 @@
 ARG BUILD_FROM
-FROM irssi
+FROM $BUILD_FROM
 
-# Copy data for add-on
-COPY run.sh /
-#RUN chmod a+x /run.sh
 
-CMD [ "/run.sh" ]
+CMD ["/bin/bash", "-c", "while true; do date; sleep 1; done"]
+
