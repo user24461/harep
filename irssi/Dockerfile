@@ -14,6 +14,8 @@ ENV LANG C.UTF-8
 
 ENV IRSSI_VERSION 1.4.2
 
+ENV TERM xterm-256color
+
 RUN set -eux; \
 	\
 	apk add --no-cache --virtual .build-deps \
