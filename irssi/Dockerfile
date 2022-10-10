@@ -8,9 +8,7 @@ RUN apk add --no-cache \
 ENV HOME /config/irssi
 
 RUN set -eux; \
-	adduser -u 1001 -D -h "$HOME" user; \
-	mkdir "$HOME/.irssi"; \
-	chown -R user:user "$HOME"
+	adduser -u 1001 -D -h "$HOME" user; 
 
 ENV LANG C.UTF-8
 
