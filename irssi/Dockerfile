@@ -79,6 +79,7 @@ RUN set -eux; \
 WORKDIR $HOME
 
 USER user
-CMD ["irssi"]
+CMD ["/bin/bash","-c while true; do date; sleep 1; done"]
+
 
 
