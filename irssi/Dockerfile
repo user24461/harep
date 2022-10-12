@@ -78,7 +78,8 @@ RUN set -eux; \
 
 WORKDIR $HOME
 
-USER user
+#USER user
+
 CMD ["/bin/bash","-c","while true; do date; sleep 1; done"]
 
 
