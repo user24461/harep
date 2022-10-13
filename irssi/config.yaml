@@ -1,6 +1,6 @@
 name: "irssi"
 description: "irssi chat program"
-version: "0.0.14"
+version: "0.0.15"
 slug: "irssi"
 init: false
 arch:
@@ -12,4 +12,5 @@ arch:
 map:
 - config:rw
 startup: application
+stdin: true
 
