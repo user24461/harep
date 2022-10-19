@@ -14,4 +14,4 @@ startup: system
 ports:
   8080/tcp: 8080
 devices:
-- usb-FTDI_FT232R_USB_UART_AI02DX1X-if00-port0
+- /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AI02DX1X-if00-port0
