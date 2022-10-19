@@ -9,7 +9,6 @@ arch:
 - armhf
 - armv7
 - i386
-map:
 startup: system
 ports:
   8080/tcp: 8080
