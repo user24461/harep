@@ -45,6 +45,7 @@ async def handleSerialInput():
   global smartmeter
   global settings
   global status
+  global watermeter
 
   with serial.Serial("/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AI02DX1X-if00-port0", 112500) as ser:
 
@@ -114,9 +115,18 @@ async def handleSerialInput():
             { "STATUS_ID": 105, "STATUS": None },
           ]
 
+          newWatermeter = [
+            {
+                "WATERMETER_CONSUMPTION_LITER": None,
+                "WATERMETER_CONSUMPTION_TOTAL_M3": None,
+                "WATERMETER_PULS_COUNT": None, 
+            } 
+          ]
+
           smartmeter = newSmartmeter
           settings   = newSettings
           status     = newStatus
+          watermeter = newWatermeter
 
           #print()
           #print(message.decode("ascii"))
@@ -149,12 +159,17 @@ async def get_v1_status(request):
     #print("status")
     return web.json_response(status)
 
+async def get_v1_watermeter(request):
+    global watermeter
+    #print("watermeter")
+    return web.json_response(watermeter)
 
 async def main():
   app = web.Application()
   app.router.add_get('/api/v1/smartmeter', get_v1_smartmeter)
   app.router.add_get('/api/v1/configuration', get_v1_settings)
   app.router.add_get('/api/v1/status', get_v1_status)
+  app.router.add_get('/api/v2/watermeter/day', get_v2_watermeter)
 
   runner = web.AppRunner(app, access_log=None)
   await runner.setup()
