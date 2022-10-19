@@ -159,7 +159,7 @@ async def get_v1_status(request):
     #print("status")
     return web.json_response(status)
 
-async def get_v1_watermeter(request):
+async def get_v2_watermeter(request):
     global watermeter
     #print("watermeter")
     return web.json_response(watermeter)
