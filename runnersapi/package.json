@@ -1,0 +1,14 @@
+{
+  "name": "runners-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.1",
+    "sqlite3": "^4.0.4"
+  }
+}
+
