@@ -12,7 +12,5 @@ arch:
 map:
 - config:rw
 startup: system
-
-stdin: true
 ports:
   3000/tcp: 3000
