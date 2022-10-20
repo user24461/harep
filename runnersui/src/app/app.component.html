@@ -1,0 +1,101 @@
+<h1>{{ title }}</h1>
+
+<input value="Date" readonly/><input value="Minutes" readonly/>
+<div style="overflow-y: scroll; height: 345px; width:400px;" #scrollList >
+  <div *ngFor="let meetwaarde of meetwaarden; let i = index">
+    <input value={{meetwaarde.date}} type="text" readonly /> 
+    <input value={{meetwaarde.minutes}} type="text" readonly /> 
+    <button (click)="deleteMeetwaarde(meetwaarde.date)" style="width: 75px;">remove</button>
+  </div>
+</div>
+
+<input [(ngModel)]="date" type="text"/>
+<input [(ngModel)]="minutes" type="text"/>
+<button (click)="addMeetwaarde()" style="width: 75px;">add</button>
+
+<h2>
+  Year: {{year}}
+  <span style="margin: 10px;"></span>
+  Days: {{meetwaarden.length}}
+  <button (click)="plusYear()" style="width: 75px; margin: 20px;">+</button>
+  <button (click)="minYear()" style="width: 75px; margin: 20px;;">-</button>
+</h2>
+
+<svg version="1.1" height="225" width="800" >
+  
+  <g *ngFor="let y of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+    <line 
+      x1="25"
+      x2="755"
+      [attr.y1]="200 - 25 - 10 * y"
+      [attr.y2]="200 - 25 - 10 * y"   
+      stroke="grey"
+      stroke-dasharray="4"   
+    />
+    <text
+      x="15"
+      [attr.y]="200 - 25 - 10 * y + 3"
+      font-size="10px"
+      text-anchor="end"
+    >{{y*10}}</text>
+  </g>
+  <line 
+      x1="25"
+      x2="755"
+      [attr.y1]="200 - 25 - 10 * 0"
+      [attr.y2]="200 - 25 - 10 * 0"   
+      stroke="grey"
+    />
+    <line 
+      x1="25"
+      x2="755"
+      [attr.y1]="200 - 25 - 10 * 15"
+      [attr.y2]="200 - 25 - 10 * 15"   
+      stroke="grey"
+    />
+
+  <g *ngFor="let text of ['Jan','Feb','Mrt','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; let i = index">
+    <line 
+      [attr.x1]="25 + 365 * 2 * i / 12"
+      [attr.x2]="25 + 365 * 2 * i / 12"
+      [attr.y1]="200 - 25 - 10 * 0"
+      [attr.y2]="200 - 25 - 10 * 15"   
+      stroke="grey"
+      stroke-dasharray="4"   
+    />
+    <text 
+      [attr.x]="25 + 20 + 730 / 12 * i" 
+      [attr.y]="200 - 5" 
+    >{{text}}</text>
+  </g>
+  <line 
+    [attr.x1]="25"
+    [attr.x2]="25"
+    [attr.y1]="200 - 25 - 10 * 0"
+    [attr.y2]="200 - 25 - 10 * 15"   
+    stroke="grey"
+  />
+  <line 
+    [attr.x1]="25 + 365 * 2"
+    [attr.x2]="25 + 365 * 2"
+    [attr.y1]="200 - 25 - 10 * 0"
+    [attr.y2]="200 - 25 - 10 * 15"   
+    stroke="grey"
+  />  
+
+  <text *ngFor="let totaal of totalen"
+    [attr.x]="25 + 730 / 12 * (totaal.maand - 1) + 20" 
+    [attr.y]="20" 
+  >{{totaal.minutes}}</text>
+
+  <rect *ngFor="let meetwaarde of meetwaarden" 
+    [attr.height]="meetwaarde.minutes" 
+    [attr.y]="200 - meetwaarde.minutes - 25" 
+    [attr.x]="25 + (meetwaarde.day - 1) * 2" 
+    width="2"
+    style="fill: red;"
+  />
+
+</svg>
+
+
