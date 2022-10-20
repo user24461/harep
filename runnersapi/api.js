@@ -36,3 +36,28 @@ router.get('/totaal', (req, res) => {
   db.close();
 });
 
+
+/* POST /meetwaarde   body => date=YYYY-MM-DD&miutes=XX */
+router.post('/meetwaarde', (req, res) => {
+  var date    = req.body.date;
+  var minutes = parseInt(req.body.minutes); 
+  var db = new sqlite3.Database(database);
+  db.run('insert into meetwaarde (date, minutes) values(?,?)', [date, minutes]); 
+  db.close();
+  res.end();
+});
+
+
+/* DELETE /meetwaarde  body => date=YYYY-MM-DD */
+router.delete('/meetwaarde', (req, res) => {
+  console.log(req.body);
+  var date    = req.body.date;
+  var db = new sqlite3.Database(database);
+  db.run('delete from meetwaarde where date = ?', [date]); 
+  db.close();
+  res.end();
+});
+
+
+module.exports = router;
+
