@@ -101,7 +101,7 @@ async def handleSerialInput():
            { "CONFIGURATION_ID": 15, "PARAMETER": None },
           ]
           newStatus = [
-            { "STATUS_ID": 74, "STATUS": find_value(message, b"1-0:21.7.0", 'float', 1000) },
+            { "STATUS_ID": 74, "STATUS": find_value(message, b"1-0:21.7.0", 'float') },
             { "STATUS_ID": 75, "STATUS": None },
             { "STATUS_ID": 76, "STATUS": None },
             { "STATUS_ID": 77, "STATUS": None },
