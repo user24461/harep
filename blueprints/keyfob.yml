@@ -77,7 +77,7 @@ trigger:
   event_type: zwave_js_value_notification
   event_data:
     device_id: !input keyfob_device
-    command_class_name: "Central Scene"
+    command_class_name: "Scene Activation"
 
 action:
   - variables:
