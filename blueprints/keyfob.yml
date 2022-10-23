@@ -1,0 +1,102 @@
+blueprint:
+  name: Aeotec Key Fob Gen5
+  description: Create automations for the Key Fob Gen5
+  domain: automation
+
+  input:
+    keyfob_device:
+      name: KeyFob Device 
+      description: A KeyFob device.
+      selector:
+        device:
+          integration: zwave_js
+          manufacturer: 'AEON Labs'
+          model: ZW088
+
+    actions1:
+      name: Button 1 Pressed
+      description: Actions to run when button 1 is pressed.
+      default: []
+      selector:
+        action:
+
+    actions2:
+      name: Button 1 Held down
+      description: Actions to run when button 1 is held down.
+      default: []
+      selector:
+        action:
+
+    actions3:
+      name: Button 2 Pressed
+      description: Actions to run when button 2 is pressed.
+      default: []
+      selector:
+        action:
+
+    actions4:
+      name: Button 2 Held down
+      description: Actions to run when button 2 is held down.
+      default: []
+      selector:
+        action:
+
+    actions5:
+      name: Button 3 Pressed
+      description: Actions to run when button 3 is pressed.
+      default: []
+      selector:
+        action:
+
+    actions6:
+      name: Button 3 Held Down
+      description: Actions to run when button 3 is held down.
+      default: []
+      selector:
+        action:
+
+    actions7:
+      name: Button 4 Pressed
+      description: Actions to run when button 4 is pressed.
+      default: []
+      selector:
+        action:
+
+    actions8:
+      name: Button 4 Held Down
+      description: Actions to run when button 4 is held down.
+      default: []
+      selector:
+        action:
+
+mode: single
+max_exceeded: silent
+
+trigger:
+  platform: event
+  event_type: zwave_js_value_notification
+  event_data:
+    device_id: !input keyfob_device
+    command_class_name: "Central Scene"
+
+action:
+  - variables:
+      sceneId: "{{ trigger.event.data.value }}"
+  - choose:
+      - conditions: "{{ sceneId == 1 }}"
+        sequence: !input actions1
+      - conditions: "{{ sceneId == 2 }}"
+        sequence: !input actions2
+      - conditions: "{{ sceneId == 3 }}"
+        sequence: !input actions3
+      - conditions: "{{ sceneId == 4 }}"
+        sequence: !input actions4
+      - conditions: "{{ sceneId == 5 }}"
+        sequence: !input actions5
+      - conditions: "{{ sceneId == 6 }}"
+        sequence: !input actions6
+      - conditions: "{{ sceneId == 7 }}"
+        sequence: !input actions7
+      - conditions: "{{ sceneId == 8 }}"
+        sequence: !input actions8
+
