@@ -82,44 +82,44 @@ async def handleSerialInput():
 
           newSmartmeter = [
             {
-              "CONSUMPTION_GAS_M3": None,
+              "CONSUMPTION_GAS_M3": 0.0,
               "CONSUMPTION_W": find_value(message, b"1-0:1.7.0", 'float', 1000),
               "CONSUMPTION_KWH_LOW": find_value(message, b"1-0:1.8.1", 'float'),
               "CONSUMPTION_KWH_HIGH": find_value(message, b"1-0:1.8.2", 'float'),
-              "PRODUCTION_W": None,
-              "PRODUCTION_KWH_HIGH": None,
-              "PRODUCTION_KWH_LOW": None,
+              "PRODUCTION_W": 0.0,
+              "PRODUCTION_KWH_HIGH": 0.0,
+              "PRODUCTION_KWH_LOW": 0.0,
               "TARIFCODE": find_value(message, b"0-0:96.14.0", 'int'),
             }
           ]
 
           newSettings = [
-           { "CONFIGURATION_ID": 1, "PARAMETER": None },
-           { "CONFIGURATION_ID": 2, "PARAMETER": None },
-           { "CONFIGURATION_ID": 3, "PARAMETER": None },
-           { "CONFIGURATION_ID": 4, "PARAMETER": None },
-           { "CONFIGURATION_ID": 15, "PARAMETER": None },
+           { "CONFIGURATION_ID": 1, "PARAMETER": 0.0 },
+           { "CONFIGURATION_ID": 2, "PARAMETER": 0.0 },
+           { "CONFIGURATION_ID": 3, "PARAMETER": 0.0 },
+           { "CONFIGURATION_ID": 4, "PARAMETER": 0.0 },
+           { "CONFIGURATION_ID": 15, "PARAMETER": 0.0 },
           ]
           newStatus = [
             { "STATUS_ID": 74, "STATUS": find_value(message, b"1-0:21.7.0", 'float') },
-            { "STATUS_ID": 75, "STATUS": None },
-            { "STATUS_ID": 76, "STATUS": None },
-            { "STATUS_ID": 77, "STATUS": None },
-            { "STATUS_ID": 78, "STATUS": None },
-            { "STATUS_ID": 79, "STATUS": None },
+            { "STATUS_ID": 75, "STATUS": 0.0 },
+            { "STATUS_ID": 76, "STATUS": 0.0 },
+            { "STATUS_ID": 77, "STATUS": 0.0 },
+            { "STATUS_ID": 78, "STATUS": 0.0  },
+            { "STATUS_ID": 79, "STATUS": 0.0 },
             { "STATUS_ID": 100, "STATUS": find_value(message, b'1-0:31.7.0', 'float') },
-            { "STATUS_ID": 101, "STATUS": None },
-            { "STATUS_ID": 102, "STATUS": None },
-            { "STATUS_ID": 103, "STATUS": None },
-            { "STATUS_ID": 104, "STATUS": None },
-            { "STATUS_ID": 105, "STATUS": None },
+            { "STATUS_ID": 101, "STATUS": 0.0 },
+            { "STATUS_ID": 102, "STATUS": 0.0 },
+            { "STATUS_ID": 103, "STATUS": 0.0 },
+            { "STATUS_ID": 104, "STATUS": 0.0 },
+            { "STATUS_ID": 105, "STATUS": 0.0 },
           ]
 
           newWatermeter = [
             {
-                "WATERMETER_CONSUMPTION_LITER": None,
-                "WATERMETER_CONSUMPTION_TOTAL_M3": None,
-                "WATERMETER_PULS_COUNT": None, 
+                "WATERMETER_CONSUMPTION_LITER": 0.0,
+                "WATERMETER_CONSUMPTION_TOTAL_M3": 0.0,
+                "WATERMETER_PULS_COUNT": 0.0, 
             } 
           ]
 
