@@ -83,10 +83,10 @@ async def handleSerialInput():
           newSmartmeter = [
             {
               "CONSUMPTION_GAS_M3": 0.0,
-              "CONSUMPTION_W": find_value(message, b"1-0:2.7.0", 'float', 1000),
+              "CONSUMPTION_W": find_value(message, b"1-0:1.7.0", 'float', 1000),
               "CONSUMPTION_KWH_LOW": find_value(message, b"1-0:1.8.1", 'float'),
               "CONSUMPTION_KWH_HIGH": find_value(message, b"1-0:1.8.2", 'float'),
-              "PRODUCTION_W": find_value(message, b"1-0:1.7.0", 'float', 1000),
+              "PRODUCTION_W": find_value(message, b"1-0:2.7.0", 'float', 1000),
               "PRODUCTION_KWH_HIGH": find_value(message, b"1-0:2.8.2", 'float'),
               "PRODUCTION_KWH_LOW": find_value(message, b"1-0:2.8.1", 'float'),
               "TARIFCODE": find_value(message, b"0-0:96.14.0", 'int'),
@@ -128,9 +128,9 @@ async def handleSerialInput():
           status     = newStatus
           watermeter = newWatermeter
 
-          #print()
-          #print(message.decode("ascii"))
-          #print()
+          print()
+          print(message.decode("ascii"))
+          print()
           #print(smartmeter)
           #print()
           #print(settings)
