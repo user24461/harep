@@ -1,6 +1,6 @@
 name: "p1monitor"
 description: "p1 monitor"
-version: "0.0.11"
+version: "0.0.12"
 slug: "p1monitor"
 init: false
 arch:
