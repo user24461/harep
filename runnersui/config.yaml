@@ -1,6 +1,6 @@
 name: "runnersui"
 description: "runners ui"
-version: "0.0.3"
+version: "0.0.4"
 slug: "runnersui"
 init: false
 arch:
@@ -12,3 +12,5 @@ arch:
 startup: system
 ports:
   4200/tcp: 4200
+ingress: true
+ingress_port: 4200
