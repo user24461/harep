@@ -1,7 +1,11 @@
+
+<main class="main">
+
 <h1>{{ title }}</h1>
 
 <input value="Date" readonly/><input value="Minutes" readonly/>
-<div style="overflow-y: scroll; height: 345px; width:400px;" #scrollList >
+
+<div #scrollList style="overflow-y: scroll; height: 345px; width:450px;"  >
   <div *ngFor="let meetwaarde of meetwaarden; let i = index">
     <input value={{meetwaarde.date}} type="text" readonly /> 
     <input value={{meetwaarde.minutes}} type="text" readonly /> 
@@ -99,3 +103,7 @@
 </svg>
 
 
+
+</main>
+
+<router-outlet />

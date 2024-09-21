@@ -1,17 +1,25 @@
 import { Component, OnInit, ElementRef, ViewChild, ViewChildren, QueryList, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map }  from 'rxjs/operators';
-import { getLocaleDateTimeFormat } from '@angular/common';
 import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
+
+/*
+export class AppComponent {
+  title = "Runners Web";
+}
+*/
+
+
 export class AppComponent implements OnInit {
+
   
   constructor (private http: HttpClient) {
+
   }
 
   title = "Runners Web";
@@ -23,7 +31,7 @@ export class AppComponent implements OnInit {
   meetwaarden: any = [];
   totalen: any = [];
 
-  date = (new Date()).toISOString().substr(0,10);
+  date = (new Date()).toISOString().substring(0,10)
   minutes = "0";
 
   ngOnInit() {
@@ -41,14 +49,15 @@ export class AppComponent implements OnInit {
       });
   }
 
-  @ViewChild('scrollList') private scrollList: ElementRef;
+  @ViewChild('scrollList') private scrollList!: ElementRef;
 
   scrollToBottom() {
     let element = this.scrollList.nativeElement;
     element.scrollTop = element.scrollHeight;
   }
 
-  @ViewChildren('scrollList') private scrollChildren: QueryList<Object>;
+
+  @ViewChildren('scrollList') private scrollChildren!: QueryList<Object>;
 
   ngAfterViewInit() {
     this.scrollChildren.changes.subscribe(t => {
@@ -76,15 +85,14 @@ export class AppComponent implements OnInit {
       { date: this.date, minutes: this.minutes}, 
       httpOptions
     ).subscribe(res => {
-      this.getMeetwaarden();
-      this.date = (new Date()).toISOString().substr(0,10);
-      this.minutes = "0";
-    }, err => {
-
-    });
+        this.getMeetwaarden();
+        this.date = (new Date()).toISOString().substring(0,10);
+        this.minutes = "0";
+      }
+    );
   }
 
-  deleteMeetwaarde(date) {
+  deleteMeetwaarde(date: string) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -93,10 +101,10 @@ export class AppComponent implements OnInit {
     };
     this.http.delete(`${this.API}/meetwaarde`, 
       httpOptions
-    ).subscribe(res => {
-      this.getMeetwaarden();
-    }, err => {
-
-    });
+    ).subscribe((v) => {
+        this.getMeetwaarden();
+      }
+    );
   }
 }
+
