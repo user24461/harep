@@ -1,6 +1,6 @@
 name: "runnersapi"
 description: "runners api"
-version: "0.0.6"
+version: "0.0.7"
 slug: "runnersapi"
 init: false
 arch:
